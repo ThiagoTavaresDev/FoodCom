@@ -1,0 +1,61 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+   /* Container que irá conter o texto rolando */
+ .scrolling-text-container {
+   background-color: tomato;
+   width: 100%; /* Largura igual à da imagem */
+   overflow: hidden; /* Esconde o conteúdo que sai da área visível */
+   position: relative;
+   height: 50px; /* Altura do bloco de texto */
+   margin-top: -50px; /* Ajuste a posição do bloco de texto se necessário */
+ }
+
+/* Elemento que move o texto */
+.scrolling-text {
+  display: flex;
+  animation: scroll-left 15s linear infinite; /* Animação que move o texto da esquerda para a direita */
+  white-space: nowrap; /* Garante que o texto fique em uma linha */
+}
+
+/* Animação para rolar o texto da esquerda para a direita */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(-100%); /* Começa fora da tela à esquerda */
+  }
+  100% {
+    transform: translateX(100%); /* Termina fora da tela à direita */
+  }
+}
+
+/* Estilo do texto dentro do container */
+.word {
+  color: white;
+  font-size: 24px; /* Tamanho do texto */
+  margin: 0 20px; /* Espaço entre as palavras */
+  line-height: 50px; /* Alinha o texto verticalmente */
+}
+
+
+
+
