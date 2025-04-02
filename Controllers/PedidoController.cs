@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ProjetoFoodCom.Controllers;
 
 public class PedidoController : Controller
 {
-    // GET
+    [Authorize]
     public IActionResult Index()
     {
         return View();

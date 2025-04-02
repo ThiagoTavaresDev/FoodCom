@@ -1,7 +1,24 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.EntityFrameworkCore;
+using ProjetoFoodCom.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.Cookie.Name = "UserLoginCookie";
+        options.LoginPath = "/Login";
+        options.AccessDeniedPath = "/Account/AccessDenied";
+    });
+
 builder.Services.AddControllersWithViews();
+builder.Services.AddAuthorization();
+
 
 var app = builder.Build();
 
@@ -18,7 +35,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
+app.UseAuthentication();
+app.UseAuthorization(); 
 
 app.MapControllerRoute(
     name: "default",
