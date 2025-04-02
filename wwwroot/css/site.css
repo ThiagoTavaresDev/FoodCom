@@ -152,3 +152,20 @@ body {
 .contact-button:hover {
   background-color: #E63946; /* Cor de hover */
 }
+
+::-webkit-scrollbar {
+  width: 12px; /* Largura do scroll */
+  background-color: #f4f4f4; /* Cor de fundo */
+}
+
+/* Estilo da barra de rolagem */
+::-webkit-scrollbar-thumb {
+  background-color: #E63946; /* Cor da barra */
+  border-radius: 6px; /* Bordas arredondadas */
+  border: 2px solid #f4f4f4; /* Espaço ao redor da barra */
+}
+
+/* Estilo do botão de rolagem */
+::-webkit-scrollbar-button {
+  display: none; /* Oculta os botões de rolagem */
+}
