@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ProjetoFoodCom.Data;
 
 namespace ProjetoFoodCom.Controllers;
@@ -21,12 +22,21 @@ public class PedidoController : Controller
 
     [Authorize]
     [HttpGet]
-    [Route("/Pedido/{id}")]
-
-    public IActionResult GetById(int id)
+    [Route("/Pedido/NovoPedido/{itemId}")]
+    public IActionResult NovoPedido(int itemId)
     {
-        var pedido =  _context.Pedidos.Find(id);
+        var item = _context.Itens
+            .FirstOrDefault(i => i.Id == itemId);
         
-        return View("Index",pedido);
+        if (item == null)
+        {
+            return NotFound();
+        }
+        
+        // Você pode criar um ViewModel específico para esta tela
+        // ou passar o item diretamente para a view
+        return View("Index", item);
     }
+
+
 }
