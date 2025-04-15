@@ -28,8 +28,7 @@ namespace ProjetoFoodCom.Models
         public decimal Subtotal 
         { 
         get => Quantidade * PrecoUnitario; 
-        private set { } // Empty setter for EF Core
-        
+        set { } // Empty setter for EF Core
         }
 }
 }

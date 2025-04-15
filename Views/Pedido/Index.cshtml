@@ -69,10 +69,11 @@
                                 </div>
                             </div>
                         </div>
-                        
+
+                        <form asp-controller="Pedido" asp-action="ConfirmarPedido" asp-route-itemId="@Model.Id" method="post">
                         <div class="mb-3">
                             <label class="form-label">Quantidade</label>
-                            <select class="form-select text-dark border-secondary">
+                            <select name="quantidade" class="form-select text-dark border-secondary">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -82,9 +83,10 @@
                         </div>
                         
                         <div class="d-grid gap-2">
-                            <button type="button" class="btn btn-success">Confirmar Pedido</button>
-                            <button type="button" class="btn btn-outline-light">Voltar</button>
+                            <button type="submit" class="btn btn-success">Confirmar Pedido</button>
+                            <button type="button" class="btn btn-secondary" onclick="window.location.href='/'">Voltar</button>
                         </div>
+                        </form>
                     }
                     else
                     {
