@@ -19,7 +19,7 @@
             <div class="row">
                 <!-- Image section -->
                 <div class="col-md-5 mb-3 mb-md-0">
-                    <div class="border border-secondary rounded-3 d-flex align-items-center justify-content-center" style="height: 220px;">
+                    <div class="border border-secondary rounded-3 d-flex align-items-center justify-content-center" style="height: 420px;">
                         @if (Model != null && Model.Id > 0)
                         {
                             <img src="@Model.ImagemUrl" asp-append-version="true" class="img-fluid rounded-3 w-100 h-100" alt="@Model.Nome">
@@ -96,11 +96,6 @@
                     }
                 </div>
             </div>
-        </div>
-        
-        <!-- Footer section -->
-        <div class="border border-secondary rounded-3 p-3 text-center">
-            <small>© 2025 ProjetoFoodCom - Todos os direitos reservados</small>
         </div>
     </div>
 </body>

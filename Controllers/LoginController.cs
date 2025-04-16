@@ -8,7 +8,7 @@ namespace ProjetoFoodCom.Controllers;
 [Route("[controller]")]
 public class LoginController : Controller
 {
-    // GET
+
 [HttpGet]
 [AllowAnonymous]
 public IActionResult Login(string returnUrl = null)
@@ -47,11 +47,11 @@ public async Task<IActionResult> Login(string email, string password, string ret
     return View();
 }
 
-    [HttpPost]
+    [HttpGet]
     [Route("/Logout")]
     public async Task<IActionResult> Logout()
     {
-        await HttpContext.SignOutAsync("CookieAuthentication");
+        await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
         return RedirectToAction("Login", "Login");
     }
 }

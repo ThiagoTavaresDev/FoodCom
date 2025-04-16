@@ -22,30 +22,33 @@ body {
 }
 
    /* Container que irá conter o texto rolando */
- .scrolling-text-container {
-   background-color: tomato;
+.scrolling-text-container {
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: tomato;
    width: 100%; /* Largura igual à da imagem */
    overflow: hidden; /* Esconde o conteúdo que sai da área visível */
    position: relative;
    height: 50px; /* Altura do bloco de texto */
    margin-top: -50px; /* Ajuste a posição do bloco de texto se necessário */
- }
+}
 
 /* Elemento que move o texto */
 .scrolling-text {
-  display: flex;
-  animation: scroll-left 15s linear infinite; /* Animação que move o texto da esquerda para a direita */
-  white-space: nowrap; /* Garante que o texto fique em uma linha */
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll-left 20s linear infinite;
 }
 
 /* Animação para rolar o texto da esquerda para a direita */
 @keyframes scroll-left {
-  0% {
-    transform: translateX(-100%); /* Começa fora da tela à esquerda */
-  }
-  100% {
-    transform: translateX(100%); /* Termina fora da tela à direita */
-  }
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
 /* Estilo do texto dentro do container */
@@ -169,3 +172,4 @@ body {
 ::-webkit-scrollbar-button {
   display: none; /* Oculta os botões de rolagem */
 }
+

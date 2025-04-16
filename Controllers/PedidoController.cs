@@ -45,7 +45,12 @@ public class PedidoController : Controller
         var item = _context.Itens
             .FirstOrDefault(i => i.Id == itemId);
 
-        var pedidoDto = new PedidoDto
+        if (item == null)
+        {
+            return NotFound();
+        }
+
+        var pedido = new Pedido
         {
             ClienteId = 1,
             PedidoTotal = item.Preco * quantidade,
@@ -53,26 +58,12 @@ public class PedidoController : Controller
             DataCriacao = DateTime.Now
         };
 
-        // Converter DTO para entidade
-        var pedido = new Pedido
-        {
-            ClienteId = pedidoDto.ClienteId,
-            PedidoTotal = pedidoDto.PedidoTotal,
-            Status = pedidoDto.Status,
-            DataCriacao = pedidoDto.DataCriacao
-        };
-
-        if (item == null)
-        {
-            return NotFound();
-        }
-
         _context.Pedidos.Add(pedido);
         _context.SaveChanges();
 
         var itemPedido = new ItemPedido
         {
-            PedidoId = 2,
+            PedidoId = pedido.PedidoId,
             ItemId = item.Id,
             Quantidade = quantidade,
             PrecoUnitario = item.Preco,

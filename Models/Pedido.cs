@@ -26,7 +26,7 @@ namespace ProjetoFoodCom.Models
         public virtual Cliente Cliente { get; set; }
         
         [Column(TypeName = "decimal(18,2)")]
-       public decimal PedidoTotal { get; set; }
+        public decimal PedidoTotal { get; set; }
         
         public StatusPedido Status { get; set; } = StatusPedido.Pendente;
         
