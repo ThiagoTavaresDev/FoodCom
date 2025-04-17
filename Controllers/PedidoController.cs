@@ -52,7 +52,7 @@ public class PedidoController : Controller
 
         var pedido = new Pedido
         {
-            ClienteId = 1,
+            ClienteId = int.Parse(User.FindFirst("ClienteId")?.Value),
             PedidoTotal = item.Preco * quantidade,
             Status = StatusPedido.Pendente,
             DataCriacao = DateTime.Now

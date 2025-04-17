@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace ProjetoFoodCom.Models
@@ -16,6 +17,11 @@ namespace ProjetoFoodCom.Models
         [EmailAddress]
         [StringLength(100)]
         public string Email { get; set; }
+
+        [Required]
+        [StringLength(20)]
+        [PasswordPropertyText]
+        public string Senha { get; set; }
         
         [Phone]
         [StringLength(20)]
